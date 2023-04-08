@@ -1,0 +1,224 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.padding {
+    padding: 20px;
+}
+
+p {
+    display: block;
+    margin-block-start: 10px;
+    margin-block-end: 15px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.hero {
+    background-image: url('https://picsum.photos/1200/400');
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    text-align: center;
+}
+
+.section-title {
+    margin-top: 3rem;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.product-list {
+    border: 20px solid whitesmoke;
+}
+
+.align {
+    padding: 1px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.card-buttom {
+    cursor: pointer;
+    opacity: 0;
+    border-style: none;
+    position: absolute;
+    right: 100px;
+    bottom: 0px;
+    width: fit-content;
+    height: fit-content;
+    transition: right 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.card-buttom:active .card-buttom-image {
+    opacity: 50%;
+}
+
+.card-buttom:hover .card-buttom-image {
+    box-shadow: 0 0 5px;
+    border-width: 2px;
+    border-color: black;
+}
+
+.card-buttom-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 20000px;
+
+}
+
+.card:hover .card-buttom {
+    opacity: 1;
+    right: 0px;
+    bottom: 0px;
+    display: block;
+}
+
+.card {
+    display: flow;
+    position: relative;
+    border-style: solid;
+    border-color: white;
+    border-width: 10px;
+    width: 300px;
+    height: 400px;
+    margin-bottom: 2rem;
+}
+
+.card:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px);
+}
+
+.card-body {
+    display: flow;
+    position: absolute;
+    bottom: 0px;
+    height: 200px;
+    max-height: 200px;
+    width: 100%;
+}
+
+.card-title {
+    font-size: 20px;
+    margin-top: 20px;
+    height: 80px;
+    text-overflow: fade(50%);
+    overflow: hidden;
+}
+
+.card-text {
+    font-size: 20px;
+    position: absolute;
+    height: 40px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    color: #555;
+    background: linear-gradient(10deg, lightgray, gray);
+    border-radius: 20px;
+}
+
+.card-img-top {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: available;
+    margin: auto;
+    transform: scale(100%, 100%);
+    transition: all 0.1s ease-in-out;
+    border-radius: 10px;
+}
+
+.card:hover .card-img-top {
+    transform: scale(110%, 110%);
+    border-radius: 40px;
+    border-style: wave;
+}
+
+.progress {
+    height: 20px;
+    width: calc(100%);
+    opacity: 20%;
+    background: linear-gradient(270deg, gray, darkgray);
+    border-radius: 9999px;
+    position: absolute;
+    bottom: calc(40% - 10px); /* Position relative to bottom of Card.Text */
+    left: 0;
+    right: 0;
+}
+
+
+.progress_bar_per {
+    background: linear-gradient(270deg, gray, darkgray);
+    border-radius: 9999px;
+    opacity: 100%;
+}
+
+.navbar {
+    display: flex;
+    background: #555555;
+    height: 100px;
+
+}
+
+.navbar-brand {
+    text-align: center;
+    font-size: 32px;
+    font-family: fantasy;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 50px;
+}
+
+.mainbody {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "item1 item2"
+}
+
+.catalog_nav {
+    background: #282c34;
+    width: 200px;
+    grid-area: item1;
+    height: 100%;
+    display: list-item;
+}
+
+.catalog_item {
+    cursor: pointer;
+    display: block;
+    height: 30px;
+    position: relative;
+}
+
+.catalog_item_text {
+    font-family: ".VnCooperH", fantasy;
+    font-size: 14px;
+    text-decoration: none;
+    background-blend-mode: screen;
+    color: white;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+
+.catalog_item:hover {
+    background: gray;
+    transform: translate(10px, 2px);
+}
+
+
+
