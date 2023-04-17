@@ -1,0 +1,152 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.padding .loading_screen {
+    display: none;
+}
+
+.loading {
+    width: border-box;
+    min-height: calc(100vh - 100px);
+}
+
+.loading .container {
+    display: none;
+}
+
+.loading .loading_screen {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {transform: rotate(0deg)}
+    100% {transform: rotate(360deg)}
+}
+
+.container {
+    display: block;
+    max-width: none;
+    min-height: calc(100vh - 100px);
+}
+
+.fade_edge:hover {
+    background: radial-gradient(ellipse closest-corner, transparent, #000);
+    opacity: 0.8;
+}
+
+.padding {
+    padding: 20px;
+}
+
+p {
+    display: block;
+    margin-block-start: 10px;
+    margin-block-end: 15px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.hero {
+    background-image: url('https://picsum.photos/1200/400');
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    text-align: center;
+}
+
+.section-title {
+    margin-top: 3rem;
+}
+
+.product-list {
+    width: available;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 5px;
+    row-gap: 20px;
+    justify-content: flex-start;
+    margin-top: 2rem;
+    border: 20px solid whitesmoke;
+}
+
+.navbar-brand {
+    text-align: center;
+    font-size: 32px;
+    font-family: fantasy;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 50px;
+}
+
+.mainbody {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "item1 item2"
+}
+
+.catalog_nav {
+    background: #282c34;
+    width: 200px;
+    grid-area: item1;
+    height: 100%;
+    display: list-item;
+}
+
+.catalog_item {
+    cursor: pointer;
+    display: block;
+    height: 30px;
+    position: relative;
+}
+
+.catalog_item_text {
+    font-family: ".VnCooperH", fantasy;
+    font-size: 14px;
+    text-decoration: none;
+    background-blend-mode: screen;
+    color: white;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+
+.catalog_item:hover {
+    background: gray;
+    transform: translate(10px, 2px);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* black with 50% opacity */
+    z-index: 9999; /* ensure overlay is on top of other content */
+}
+
+.none {
+    display: none;
+}
+
+
+
