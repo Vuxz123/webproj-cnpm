@@ -12,7 +12,7 @@
     border-style: none;
     position: absolute;
     right: 100px;
-    bottom: 0px;
+    bottom: 0;
     width: fit-content;
     height: fit-content;
     transition: right 0.5s ease-out, opacity 0.5s ease-out;
@@ -40,8 +40,8 @@
 
 .card:hover .card-buttom {
     opacity: 1;
-    right: 0px;
-    bottom: 0px;
+    right: 0;
+    bottom: 0;
     display: block;
 }
 
@@ -70,14 +70,14 @@
 
 .card:hover {
     background: linear-gradient(270deg, white 20%, lightgray 100%);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     transform: translateY(-5px);
 }
 
 .card-body {
     display: flow;
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     height: 200px;
     max-height: 200px;
     width: 100%;

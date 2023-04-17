@@ -1,6 +1,6 @@
 import React from "react";
 import {Card, Image, ProgressBar} from "react-bootstrap";
-import buyIcon from "../../buy_icon.jpg";
+import buyIcon from "../../../buy_icon.jpg";
 import "./MyCart.css"
 
 class MyCard extends React.Component{

@@ -3,8 +3,8 @@ import {Container, Col} from 'react-bootstrap';
 import './Home.css';
 import server from "../../util/restful/Server";
 import MyNavbar from "../../component/nav/MyNavbar";
-import MyCard from "../../component/display/MyCard";
-import MyProduct from "../../component/display/MyProduct"
+import MyCard from "../../component/display/cart/MyCard";
+import MyProduct from "../../component/display/product/MyProduct"
 
 let i = 0;
 
@@ -26,6 +26,7 @@ function Home() {
             setLoading(false);
         }
 
+        // noinspection JSIgnoredPromiseFromCall
         fetchData();
     }, []);
 
@@ -44,7 +45,7 @@ function Home() {
 
     return (
         <div>
-            <MyProduct isOpen={isPopup} onClose={() => setIsPopup(false)} product={product}/>
+
             <div>
                 <MyNavbar/>
             </div>
@@ -59,6 +60,7 @@ function Home() {
                     ))}
                 </div>
                 <div color="gray" className={loading ? "loading" : "padding"}>
+                    <MyProduct isOpen={isPopup} onClose={() => setIsPopup(false)} product={product}/>
                     <div className="loading_screen">
                         <div className="loader"></div>
                     </div>
