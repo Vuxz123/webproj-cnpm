@@ -12,11 +12,12 @@
     margin-top: 0;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 45vh;
     padding: 1rem;
     background: whitesmoke;
     border-radius: 10px;
     border: 2px dashed #000;
+    overflow: auto;
   }
 
   .review-add {
@@ -42,7 +43,7 @@
 .myproduct_main {
   display: grid;
   grid-template-columns: 40vw 50vw;
-  grid-template-rows: 40vw;
+  grid-template-rows: 80vh;
   grid-template-areas:
     "item1 item2";
 
@@ -64,6 +65,7 @@
     .myproduct_title {
 
       .title {
+        width: fit-content;
         text-outline: 2px black;
         font-size: 30px;
         font-family: ".VnBodoniH", fantasy;
@@ -136,6 +138,11 @@
       }
     }
   }
+}
+
+.po-main {
+  direction: ltr;
+  margin-top: 10px;
 }
 
 .addition {

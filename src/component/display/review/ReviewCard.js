@@ -1,5 +1,6 @@
 import React from "react";
 import './ReviewCard.scss';
+import {Image} from "react-bootstrap";
 
 function getRatingDescription(rating) {
     if (rating < 1) {
@@ -22,12 +23,19 @@ function ReviewCard({review}) {
     const rate = getRatingDescription(review.rating);
 
     return (
-        <div className="review-body">
-            <div className="rate">rate</div>
-            <div>
-                {review.images.map((image, index) => {
-
-                })}
+        <div className="review-main">
+            <div className="review-title">
+                <div className="text"><strong>{review.title}</strong></div>
+                <div className="rate">{rate}</div>
+            </div>
+            <div className="review-body">
+                <div className="overview">{review.overview}</div>
+                <div className="des">
+                    <div className="content">{review.description}</div>
+                </div>
+                <div className="image-box">
+                    <Image src={review.image} className="image"/>
+                </div>
             </div>
         </div>
     );

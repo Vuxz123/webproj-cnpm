@@ -29,16 +29,17 @@ class ImageUploadForm extends React.Component {
             .catch(error => {
                 console.log(error);
             });
+        this.props.onChange(this.state.image);
     }
 
     render() {
         return (
-            <div>
+            <div className="iu_main">
                 <form className="iu_body" onSubmit={this.handleSubmit}>
                     <input className="iu_input" type="file" multiple onChange={this.handleFileChange} />
                     <button className="iu_button" type="submit">Upload Image</button>
                 </form>
-                <Image src={this.state.image == null ? null : "http://localhost:8080/image/" + this.state.image}/>
+                <Image className="iu_image" src={this.state.image == null ? null : "http://localhost:8080/image/" + this.state.image}/>
             </div>
         );
     }

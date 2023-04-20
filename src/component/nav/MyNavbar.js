@@ -11,10 +11,7 @@ function NavigationBar() {
     }
     const loginHandler = () => {
         if(isAuthenticated) return;
-        loginWithRedirect()
-            .then(() => {
-                setLogin(true);
-            });
+        loginWithRedirect();
     };
 
     const a = (

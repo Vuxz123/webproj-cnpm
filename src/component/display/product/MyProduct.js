@@ -5,19 +5,45 @@ import './MyProduct.scss'
 import server from "../../../util/restful/Server";
 import ReviewCard from "../review/ReviewCard"
 import ReviewAddPopup from "../review/ReviewAddPopup";
+import IntegerInput from "../../input/IntegerInput";
+import {useAuth0} from "@auth0/auth0-react";
 
 function MyProduct({ product, isOpen, onClose}) {
     const [reviews, setReviews] = useState(null);
     const [isReview, setIsReview] = useState(false);
+    const [num, setNum] = useState(0);
+
     useEffect(() => {
         async function fetchData() {
+            var url = '/products/reviews/' + product.id;
+            console.log(url);
             const res = await server.get('/products/reviews/' + product.id);
+            console.log(product.id);
             const data = res.data;
             setReviews(data);
         }
+        console.log("fetching reviews");
+        fetchData()
+    }, [isOpen, product, isReview]);
 
-        fetchData();
-    })
+    const {isAuthenticated, user} = useAuth0();
+
+    const handleAddToCard = () => {
+        const {sub} = user;
+        console.log("user_id:", product.id);
+        const data = {
+            user_id: sub,
+            product_id: product.id,
+            total: num
+        };
+        console.log(data);
+
+        server.post("/carts/add", data, {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => console.log(res));
+    }
 
     const reviewGen = () => {
         if(reviews == null){
@@ -26,7 +52,9 @@ function MyProduct({ product, isOpen, onClose}) {
         return (
             <div className="flex-column">
                 {reviews.map((review, index) => {
-                    return ( <ReviewCard review={review}/> );
+                    return (
+                        <ReviewCard review={review}/>
+                    );
                 })}
             </div>
         );
@@ -47,16 +75,16 @@ function MyProduct({ product, isOpen, onClose}) {
                             <div className={recommended ? "recommend" : "hidden"}>RECOMMENDED</div>
                         </div>
                         <div className="b addition">
-                            <div className="price">Price: </div>
+                            <div className="price"><strong>Price: </strong></div>
                             <div className={discount ? "ori" : "hidden"}>{product.price}$</div>
                             <div className="price flo"> {real_price}$</div>
                             <div className={discount ? "discount" : "hidden"}>-{product.discountPercentage}%</div>
                         </div>
                         <div className="b">
-                            <div className="brand">Brand: {product.brand}</div>
+                            <div className="brand"><strong>Brand: </strong> {product.brand}</div>
                         </div>
                         <div className="b">
-                            <div className="description">Discription: {product.description}</div>
+                            <div className="description"><strong>Discription: </strong> {product.description}</div>
                         </div>
                         <div className="b review-grid">
                             <div className="review-box">
@@ -64,9 +92,13 @@ function MyProduct({ product, isOpen, onClose}) {
                             </div>
                             <div className="review-add">
                                 <ReviewAddPopup product_id={product.id} isOpen={isReview} onClose={() => setIsReview(false)}/>
-                                <button className="but" onClick={() => setIsReview(true)}>Add Review</button>
-                                <text className="left"> {reviews.length} Reviews </text>
+                                <button className={isAuthenticated ? "but" : "hidden"} onClick={() => setIsReview(true)}>Add Review</button>
+                                <text className="left"> {(reviews == null) ? "0" : reviews.length} Reviews </text>
                             </div>
+                        </div>
+                        <div className={isAuthenticated ? "po-main" : "hidden"}>
+                            <IntegerInput onChange={(num) => setNum(num)} value={num}/>
+                            <button onClick={handleAddToCard}>Add to Card</button>
                         </div>
                     </div>
                 </div>

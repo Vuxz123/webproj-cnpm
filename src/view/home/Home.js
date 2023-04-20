@@ -14,6 +14,7 @@ function Home() {
     const [products, setProducts] = useState([]);
     const [catas, setCatas] = useState([]);
     const [loading, setLoading] = useState(true);
+    //const [i, setI] = useState(0);
     useEffect(() => {
         async function fetchData() {
             setLoading(true);
