@@ -15,7 +15,7 @@ function MyProduct({ product, isOpen, onClose}) {
 
     useEffect(() => {
         async function fetchData() {
-            var url = '/products/reviews/' + product.id;
+            const url = '/products/reviews/' + product.id;
             console.log(url);
             const res = await server.get('/products/reviews/' + product.id);
             console.log(product.id);

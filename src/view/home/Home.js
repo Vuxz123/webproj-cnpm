@@ -11,7 +11,7 @@ let i = 0;
 function Home() {
     const [isPopup, setIsPopup] = useState(false);
     const [product, setProduct] = useState(null);
-    const [products, setProducts] = useState([]);
+    const [products,setProducts] = useState([]);
     const [catas, setCatas] = useState([]);
     const [loading, setLoading] = useState(true);
     //const [i, setI] = useState(0);
@@ -46,7 +46,6 @@ function Home() {
 
     return (
         <div>
-
             <div>
                 <MyNavbar/>
             </div>

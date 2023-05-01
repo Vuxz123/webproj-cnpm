@@ -1,17 +1,17 @@
 import './App.css';
-import Home from "./view/home/Home";
 import React from "react";
 import Auth0ProviderWithHistory from "./auth/Auth0ProviderWithHistory";
-import {BrowserRouter} from "react-router-dom";
+import {ChakraProvider} from "@chakra-ui/react";
+import MyRouter from "./router/MyRouter";
 
 function App() {
 
     return (
-        <BrowserRouter>
+        <ChakraProvider>
             <Auth0ProviderWithHistory>
-                <Home/>
+                <MyRouter/>
             </Auth0ProviderWithHistory>
-        </BrowserRouter>
+        </ChakraProvider>
     );
 }
 
